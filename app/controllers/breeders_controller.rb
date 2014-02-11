@@ -1,5 +1,7 @@
 class BreedersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_breeder, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @breeders = Breeder.all
@@ -9,14 +11,14 @@ class BreedersController < ApplicationController
   end
 
   def new
-    @breeder = Breeder.new
+    @breeder = current_user.breeders.build
   end
 
   def edit
   end
 
   def create
-    @breeder = Breeder.new(breeder_params)
+    @breeder = current_user.breeders.build(breeder_params)
     if @breeder.save
       redirect_to @breeder, notice: 'Breeder was successfully created.'
     else
@@ -43,8 +45,13 @@ class BreedersController < ApplicationController
       @breeder = Breeder.find(params[:id])
     end
 
+    def correct_user
+      @breeder = current_user.breeders.find_by(id: params[:id])
+      redirect_to breeders_path, notice: "Not authorized to edit this breeder" if @breeder.nil?
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def breeder_params
-      params.require(:breeder).permit(:description)
+      params.require(:breeder).permit(:description, :image)
     end
 end

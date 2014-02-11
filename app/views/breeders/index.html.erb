@@ -1,27 +1,38 @@
-<h1>Listing breeders</h1>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <h1>Listing breeders</h1>
 
-  <tbody>
-    <% @breeders.each do |breeder| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= breeder.description %></td>
-        <td><%= link_to 'Show', breeder %></td>
-        <td><%= link_to 'Edit', edit_breeder_path(breeder) %></td>
-        <td><%= link_to 'Destroy', breeder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @breeders.each do |breeder| %>
+        <tr>
+          <td><%= breeder.description %></td>
+          <td><%= breeder.user.email if breeder.user %></td>
+          <td><%= link_to 'Show', breeder %></td>
+          
+          <% if breeder.user == current_user %>
+              <td><%= link_to 'Edit', edit_breeder_path(breeder) %></td>
+          <% end %>
+          
+          <td><%= link_to 'Destroy', breeder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Breeder', new_breeder_path %>
+  <br>
+
+  <% if user_signed_in? %>
+    <%= link_to 'New Breeder', new_breeder_path %>
+  <% end %>
+
+</div>
