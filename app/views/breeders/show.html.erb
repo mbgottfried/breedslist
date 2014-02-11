@@ -4,6 +4,7 @@
   <strong>Description:</strong>
   <%= @breeder.description %>
 </p>
+	<%= image_tag @breeder.image.url(:medium) %>
 
 <%= link_to 'Edit', edit_breeder_path(@breeder) %> |
 <%= link_to 'Back', breeders_path %>

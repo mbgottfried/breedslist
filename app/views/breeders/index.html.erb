@@ -5,9 +5,9 @@
   <table>
     <thead>
       <tr>
+        <th>Image</th>
         <th>Description</th>
-        <th></th>
-        <th></th>
+        <th>User</th>
         <th></th>
       </tr>
     </thead>
@@ -15,15 +15,15 @@
     <tbody>
       <% @breeders.each do |breeder| %>
         <tr>
+          <td><%= image_tag breeder.image.url(:medium) %></td>
           <td><%= breeder.description %></td>
           <td><%= breeder.user.email if breeder.user %></td>
           <td><%= link_to 'Show', breeder %></td>
           
           <% if breeder.user == current_user %>
-              <td><%= link_to 'Edit', edit_breeder_path(breeder) %></td>
+            <td><%= link_to 'Edit', edit_breeder_path(breeder) %></td>
+            <td><%= link_to 'Destroy', breeder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
-          
-          <td><%= link_to 'Destroy', breeder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
