@@ -1,38 +1,18 @@
 <div class="container">
-
-  <h1>Listing breeders</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Description</th>
-        <th>User</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @breeders.each do |breeder| %>
-        <tr>
-          <td><%= image_tag breeder.image.url(:medium) %></td>
-          <td><%= breeder.description %></td>
-          <td><%= breeder.user.email if breeder.user %></td>
-          <td><%= link_to 'Show', breeder %></td>
-          
+  <div id="breeders" class="transitions-enabled">
+    <% @breeders.each do |breeder| %>
+      <div class="box panel panel-default">
+        <%= image_tag breeder.image.url(:medium) %>
+        <div class="panel-body">
+          <%= breeder.description %>
+          <%= breeder.user.email if breeder.user %>
+          <%= link_to 'Show', breeder_path(breeder) %>
           <% if breeder.user == current_user %>
-            <td><%= link_to 'Edit', edit_breeder_path(breeder) %></td>
-            <td><%= link_to 'Destroy', breeder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to 'Edit', edit_breeder_path(breeder) %>
+            <%= link_to 'Destroy', breeder, method: :delete, data: { confirm: 'Are you sure?' } %>     
           <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <% if user_signed_in? %>
-    <%= link_to 'New Breeder', new_breeder_path %>
-  <% end %>
-
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
