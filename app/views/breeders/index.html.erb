@@ -1,0 +1,27 @@
+<h1>Listing breeders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breeders.each do |breeder| %>
+      <tr>
+        <td><%= breeder.description %></td>
+        <td><%= link_to 'Show', breeder %></td>
+        <td><%= link_to 'Edit', edit_breeder_path(breeder) %></td>
+        <td><%= link_to 'Destroy', breeder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Breeder', new_breeder_path %>
