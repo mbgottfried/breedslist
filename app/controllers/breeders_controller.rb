@@ -4,7 +4,7 @@ class BreedersController < ApplicationController
 
 
   def index
-    @breeders = Breeder.all
+    @breeders = Breeder.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
   end
 
   def show
