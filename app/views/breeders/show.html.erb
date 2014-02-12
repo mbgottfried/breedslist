@@ -1,10 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @breeder.description %>
-</p>
-	<%= image_tag @breeder.image.url(:medium) %>
-
-<%= link_to 'Edit', edit_breeder_path(@breeder) %> |
 <%= link_to 'Back', breeders_path %>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @breeder.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><%= @breeder.description %></p>
+        <p><strong><%= @breeder.user.email if @breeder.user %></strong></p>
+
+        <% if @breeder.user == current_user %>
+         <%= link_to 'Edit', edit_breeder_path(@breeder) %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
