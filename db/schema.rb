@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324192313) do
+ActiveRecord::Schema.define(version: 20140325184630) do
 
   create_table "breeders", force: true do |t|
     t.string   "description"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140324192313) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "location"
+    t.string   "name"
   end
 
   add_index "breeders", ["user_id"], name: "index_breeders_on_user_id"

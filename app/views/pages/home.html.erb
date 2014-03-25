@@ -28,21 +28,19 @@
 		<div class="col-md-12">
 			<h1>Featured Breeders</h1>
 			<h4>Ready to meet your new best friend? These Breeders have puppies available now!</h4>
-			<div id="breeders" class="transitions-enabled">
-			  <% @breeders.each do |breeder| %>
-			    <div class="box panel panel-default">
-			      <%= link_to image_tag(breeder.image.url(:medium)), breeder %>
-			      <div class="panel-body">
-			        <%= breeder.description %>
-			        <%= breeder.user.email if breeder.user %>
-			        <%= link_to 'Show', breeder_path(breeder) %>
-			        <% if breeder.user == current_user %>
-			          <%= link_to 'Edit', edit_breeder_path(breeder) %>
-			          <%= link_to 'Destroy', breeder, method: :delete, data: { confirm: 'Are you sure?' } %>     
-			        <% end %>
-			      </div>
-			    </div>
-			  <% end %>
+			<div class="row">
+				<div id="breeders" class="transitions-enabled">
+				  <% @breeders.each do |breeder| %>
+				  	<div class="home-breeder col-md-4">
+				      <%= link_to image_tag(breeder.image.url(:medium)), breeder %>
+				    	<div class="home-breeder-name center">
+				        	<%= link_to breeder_path(breeder) do %>
+				        	<h4><%= breeder.name %></h4>
+				        	<% end %>
+				    	</div>
+				    </div>
+				  <% end %>
+				</div>
 			</div>
 		</div>
 	</div>

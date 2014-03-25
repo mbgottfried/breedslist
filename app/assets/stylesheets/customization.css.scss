@@ -188,3 +188,39 @@ footer ul a:hover{
 	color: #428BCA;
 	text-decoration: underline;	
 }
+
+.home-breeder img {
+	width: 100%;
+	max-height: 200px;
+}
+
+.home-breeder-name {
+    
+}
+
+.home-breeder-name a {
+	display: block;
+	background: rgba(0, 0, 0, 0.5);
+    margin-top: -50px;
+    padding: 5px 0;
+    position: relative;
+    z-index: 1000;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: background .2s;
+    -webkit-transition: background .2s;
+    -moz-transition: background .2s;
+    -ms-transition: background .2s;
+}
+
+.home-breeder-name h4 {
+	color: #ffffff;
+}
+
+.home-breeder-name a:hover {
+	text-decoration: none;
+}
+
+#breeders {
+	margin-top: 10px;
+}
