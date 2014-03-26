@@ -17,7 +17,7 @@
 
 		      <div class="form-group">
 		        <%= f.label "Full Name" %>
-		        <%= f.email_field :name, autofocus: true, placeholder: "John Doe", class: "form-control" %>
+		        <%= f.text_field :name, autofocus: true, placeholder: "John Doe", class: "form-control" %>
 		      </div>
 
 		      <div class="form-group">
@@ -37,7 +37,8 @@
 
 		      <div class="form-group">
 		        <%= f.submit "Create Account and Continue", class: "btn btn-signup" %>
-		        <p>Next, you'll create your Breeder Page.</p>
+		        <br />
+		        <p class="center">Next, you'll create your Breeder Page.</p>
 		      </div>
 		    <% end %>
 		  </div>

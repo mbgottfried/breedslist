@@ -244,3 +244,19 @@ footer ul a:hover{
 label {
 	text-transform: capitalize;
 }
+
+#error_explanation h2 {
+	background: #c0392b;
+	font-size: 15px;
+	padding: 15px;
+	color: #ffffff;
+}
+
+#error_explanation li {
+	color: #c0392b;
+}
+
+.alert {
+	border-radius: 0px;
+	margin-bottom: 0px;
+}

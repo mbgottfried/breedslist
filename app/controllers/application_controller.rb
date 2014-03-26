@@ -10,4 +10,17 @@ class ApplicationController < ActionController::Base
      devise_parameter_sanitizer.for(:sign_up) << :name
      devise_parameter_sanitizer.for(:account_update) << :name
    end
+
+   def stored_location_for(resource)
+   	nil
+   end
+
+   def after_sign_in_path_for(resource)
+   	breeders_path
+   end
+
+   def after_new_user_registration_path(resource)
+   	breeders_path
+   end
+
 end
