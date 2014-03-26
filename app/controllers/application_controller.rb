@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
    end
 
    def after_new_user_registration_path(resource)
-   	breeders_path
+   	new_breeder_path
    end
 
 end
