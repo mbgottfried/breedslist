@@ -2,6 +2,13 @@
 
 <div class="container">
 
+  <%= form_tag breeders_path, :method => :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search Near", :name => nil %>
+    </p>
+  <% end %>
+
   <div id="breeders" class="transitions-enabled">
     <% @breeders.each do |breeder| %>
       <div class="box panel panel-default">

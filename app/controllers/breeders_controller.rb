@@ -4,7 +4,7 @@ class BreedersController < ApplicationController
 
   def index
     if params[:search].present?
-      @locations = Location.near(params[:search], 50, :order => :distance)
+      @breeders = Breeder.near(params[:search], 50, :order => :distance).paginate(:page => params[:page], :per_page => 8)
     else
       @breeders = Breeder.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
     end
