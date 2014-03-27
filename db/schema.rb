@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325184630) do
+ActiveRecord::Schema.define(version: 20140327180635) do
 
   create_table "breeders", force: true do |t|
     t.string   "description"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20140325184630) do
     t.datetime "image_updated_at"
     t.string   "location"
     t.string   "name"
+    t.string   "breed"
+    t.string   "phone"
+    t.boolean  "reservation"
+    t.integer  "deposit"
   end
 
   add_index "breeders", ["user_id"], name: "index_breeders_on_user_id"

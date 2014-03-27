@@ -210,10 +210,6 @@ footer ul a:hover{
 	max-height: 200px;
 }
 
-.home-breeder-name {
-    
-}
-
 .home-breeder-name a {
 	display: block;
 	background: rgba(0, 0, 0, 0.5);
@@ -259,4 +255,41 @@ label {
 .alert {
 	border-radius: 0px;
 	margin-bottom: 0px;
+}
+
+.push {
+	margin-top: 60px;
+}
+
+.nav-tabs {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-radius: 4px 4px 0 0;
+    padding: 10px 0 0 10px;
+    border: 1px solid #DCDCDC;
+}
+
+.nav-tabs > li > a {
+	border: 1px solid #dcdcdc;
+}
+
+.nav-tabs > li > a:hover {
+	border: 1px solid #dcdcdc;	
+}
+
+.tab-content {
+	border-bottom: 1px solid #dcdcdc;
+	border-left: 1px solid #dcdcdc;
+	border-right: 1px solid #dcdcdc;
+	padding: 15px;
+	min-height: 300px;
+}
+
+.modal-toggle {
+	cursor: pointer;
+}
+
+.comment {
+	color: #999999;
+	font-size: 12px;
+	margin: 10px 0 0;
 }

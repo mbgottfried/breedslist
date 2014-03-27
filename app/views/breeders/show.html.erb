@@ -1,20 +1,94 @@
-<%= link_to 'Back', breeders_path %>
+<%= render 'layouts/header' %>
 
-<div class="row">
-  <div class="col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading center">
-        <%= image_tag @breeder.image.url(:medium) %>
-      </div>
-      <div class="panel-body">
-        <p><%= @breeder.description %></p>
-        <p><strong><%= @breeder.user.email if @breeder.user %></strong></p>
-
-        <% if @breeder.user == current_user %>
-         <%= link_to 'Edit', edit_breeder_path(@breeder) %>
-        <% end %>
-
-      </div>
-    </div>
+<div class="container">
+  <div class="page-header">
+    <h1><%= @breeder.name %></h1>
+    <h5><%= @breeder.breed %> - <%= @breeder.location %></h5>
+    <% if @breeder.user == current_user %>
+     <%= link_to 'Edit This Page', edit_breeder_path(@breeder) %>
+    <% end %>
   </div>
+
+  <div class="row breeder-body">
+    <div class="col-md-8">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#photos" data-toggle="tab">Photos</a></li>
+        <li><a href="#overview" data-toggle="tab">Overview</a></li>
+        <li><a href="#services" data-toggle="tab">Other Services</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="photos">
+          <%= image_tag @breeder.image.url(:medium) %>
+        </div>
+
+        <div class="tab-pane" id="overview">
+          <p><%= @breeder.description %></p>
+        </div>
+
+        <div class="tab-pane" id="services">
+          services
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <h2>Available Puppies</h2>
+        <% if @breeder.reservation = "true" %>
+        This breeder allows reservations.<br />
+        A $<%= @breeder.deposit %> deposit is required at the time of the reservation.<br />
+        <a class="modal-toggle" data-toggle="modal" data-target="#myModal">Learn More about Reservations</a>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">Breedslist Reservations</h4>
+                </div>
+                <div class="modal-body">
+                  Reservations
+                </div>
+                <div class="modal-footer">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <% else %>
+        <% end %>
+      </div>
+      <div class="col-md-12">
+        <h2>Reviews</h2>
+        Review system
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+   
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p><strong>Location:</strong> <%= @breeder.location %></p>
+            <p><strong>Phone:</strong> <%= @breeder.phone %><br />
+            <strong>Email:</strong> <a href="mailto:<%= @breeder.user.email if @breeder.user %>"><%= @breeder.user.email %></a></p>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <a class="btn btn-bark" href="#">Follow This Breeder</a>
+            <p class="comment center">Subscribe to receive updates via email</p>
+          </div>
+        </div>
+
+    </div>
+
+  </div> <!-- /row -->
 </div>
+
+<%= render 'layouts/footer' %>
