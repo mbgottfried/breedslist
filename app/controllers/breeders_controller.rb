@@ -2,9 +2,12 @@ class BreedersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_breeder, only: [:show, :edit, :update, :destroy]
 
-
   def index
-    @breeders = Breeder.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
+    if params[:search].present?
+      @locations = Location.near(params[:search], 50, :order => :distance)
+    else
+      @breeders = Breeder.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
+    end
   end
 
   def show
@@ -52,6 +55,6 @@ class BreedersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def breeder_params
-      params.require(:breeder).permit(:description, :image)
+      params.require(:breeder).permit(:description, :image, :location, :phone)
     end
 end

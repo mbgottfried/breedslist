@@ -73,6 +73,7 @@
    
         <div class="panel panel-default">
           <div class="panel-body">
+            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=328x300&sensor=false&zoom=8&markers=#{@breeder.latitude}%2C#{@breeder.longitude}" %>
             <p><strong>Location:</strong> <%= @breeder.location %></p>
             <p><strong>Phone:</strong> <%= @breeder.phone %><br />
             <strong>Email:</strong> <a href="mailto:<%= @breeder.user.email if @breeder.user %>"><%= @breeder.user.email %></a></p>
