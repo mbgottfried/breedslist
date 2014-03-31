@@ -12,21 +12,47 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_field :description, class: "form-control" %>
+    <%= f.label "Name" %><br>
+    <%= f.text_field :name, class: "form-control", placeholder: "ex. Penny's Perfect Puppies" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :image %><br>
-    <%= f.file_field :image, class: "form-control" %>
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control", placeholder: "A short description of what makes you great..." %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Type of Dogs" %><br>
+    <%= f.text_field :breed, class: "form-control", placeholder: "ex. Golden Retriever, Poodle, etc." %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Images" %><br>
+    <%= f.file_field :image %>
+    <p class="italic">Images should be square to avoid stretching.</p>
   </div>
 
   <div class="form-group">
     <%= f.label :location %><br>
-    <%= f.text_field :location, class: "form-control" %>
+    <%= f.text_field :location, class: "form-control", placeholder: "ex. Atlanta, GA or 30305" %>
   </div>
 
   <div class="form-group">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone, class: "form-control", placeholder: "(404) 555-5555" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Allow Reservations?" %><br>
+    <%= f.select :reservation, [['Yes', true], ['No', false]] %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Deposit Required (in dollars)" %><br>
+    <%= f.text_field :deposit, class: "form-control", placeholder: "100" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-signup" %>
   </div>
 <% end %>

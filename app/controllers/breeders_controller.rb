@@ -55,6 +55,6 @@ class BreedersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def breeder_params
-      params.require(:breeder).permit(:description, :image, :location, :phone)
+      params.require(:breeder).permit(:description, :image, :location, :breed, :phone, :name, :reservation, :deposit)
     end
 end

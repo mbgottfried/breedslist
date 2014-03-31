@@ -2,11 +2,36 @@
 
 <div class="container">
 	
-	<h1>New breeder</h1>
+	<div class="page-header center">
+		<h1>Create Your Breeder Page</h1>
+		<h4>Get started finding your dogs a new home with Breedslist</h4>
+	</div>
 
-	<%= render 'form' %>
+	<div class="col-md-8 col-md-offset-2">
 
-	<%= link_to 'Back', breeders_path %>
+		<div class="panel panel-default">
+
+			<div class="panel-heading center">
+	
+				<h5>Breeder Page Details</h5>
+			
+			</div>
+
+			<div class="panel-body">
+
+				<%= render 'form' %>
+
+			</div>
+
+			<div class="panel-footer">
+
+				<%= link_to 'Back', breeders_path %>
+
+			</div>
+
+		</div>
+	
+	</div>
 
 </div>
 

@@ -5,7 +5,7 @@
     <h1><%= @breeder.name %></h1>
     <h5><%= @breeder.breed %> - <%= @breeder.location %></h5>
     <% if @breeder.user == current_user %>
-     <%= link_to 'Edit This Page', edit_breeder_path(@breeder) %>
+     <%= link_to 'Edit This Page', edit_breeder_path(@breeder), class: "btn btn-primary" %>
     <% end %>
   </div>
 
@@ -22,7 +22,7 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div class="tab-pane active" id="photos">
-          <%= image_tag @breeder.image.url(:medium) %>
+          <%= image_tag @breeder.image.url(:large) %>
         </div>
 
         <div class="tab-pane" id="overview">
